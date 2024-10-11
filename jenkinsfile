@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage ('git clone') { 
+        steps {
+            git 'https://github.com/sambit-8490/Maven_Sample_Project1.git'
+        }
+    }
+    stage ('entered inside') {
+        steps {
+            sh 'mvn clean package'
+        }
+    }
+    stage ('excute') {
+        steps {
+            sh 'java -jar target/java-project2-1.0-SNAPSHOT.jar'
+        }
+    }
+    
+  }
+  }
